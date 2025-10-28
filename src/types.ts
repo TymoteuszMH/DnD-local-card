@@ -1,5 +1,18 @@
 /**
- * @param {string} id UUID of card
+ * @param {string} id card's id
+ * @param {IBasicInfo} basicInfo info about character
+ * @param {IStat[]} stats character's stat
+ * @param {boolean} inspiration inspirations status
+ * @param {number} proficiencyValue current proficency value
+ * @param {ISavingThrow[]} savingThrows list of saving throws
+ * @param {ISkill[]} skills list of skills
+ * @param {IHealth} healthInfo info about character's health-related stats
+ * @param {IWeapon[]} weapons list of weapons
+ * @param {IItem[]} items list of items
+ * @param {IFeat[]} feats list of feats
+ * @param {IProficiency[]} proficiencies list of proficiencies
+ * @param {ISpellInfo | undefined} spellInfo info about character's spell-related stats 
+ * @param {ISpellList[] | undefined} spells spells list
  */
 export interface ICard{
     id: string;
@@ -18,22 +31,42 @@ export interface ICard{
     spells?: ISpellList[];
 }
 
+/**
+ * @param {string} name character's name
+ * @param {string} class class of character
+ * @param {string | undefined} subclass subclass of class
+ * @param {number} level character's current level
+ * @param {string} race character's race
+ * @param {string} background character's background
+ */
 export interface IBasicInfo{
     name: string;
     class: string;
     subclass?: string;
-    lvl: number;
+    level: number;
     race: string;
     background: string;
 }
 
+/**
+ * type of stat: strength, dextility, constitution, inteligence, wisdom, charisma
+ */
 export type statType = "STR"|"DEX"|"CON"|"INT"|"WIS"|"CHA"
 
+/**
+ * @param {statType} type type of stat
+ * @param {number} value stat's current value (without proficiency bonus)
+ */
 export interface IStat{
     type: statType;
     value: number;
 }
 
+/**
+ * @param {statType} type type of saving throw
+ * @param {boolean} proficency whether character has proficiency in saving throw or not
+ * @param {number} value current ST value (without proficiency bonus)
+ */
 export interface ISavingThrow{
     type: statType;
     proficiency: boolean;
