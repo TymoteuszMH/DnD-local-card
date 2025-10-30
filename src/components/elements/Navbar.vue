@@ -13,10 +13,16 @@
 <template>
     <el-container>
         <Transition name="bg">
-            <div v-if="showState" class="absolute w-full h-full bg-black opacity-25 z-1"></div>
+            <div v-if="showState" class="absolute w-full h-full bg-black opacity-25 z-1" @click="showSidebar"></div>
         </Transition>
-        <el-header>
-            <Button :func="showSidebar" class="max-w-[50px]">Show</Button>
+        <el-header class="flex flex-row items-center justify-between">
+            <div>
+                <Button :func="showSidebar" class="max-w-[50px]">Show</Button>
+            </div>
+            <div class="flex">
+                <Button :func="()=>{}" class="max-w-[50px]">Save</Button>
+                <Button :func="()=>{}" class="max-w-[50px]">Export</Button>
+            </div>
         </el-header>
         <el-container>
             <Transition name="sidebar">
@@ -39,11 +45,21 @@
     }
     .sidebar-enter-active,
     .sidebar-leave-active {
-        transition: left 0.3s ease-in-out;
+        transition: left 0.3s ease;
     }
 
     .sidebar-enter-from,
     .sidebar-leave-to {
         left: -300px;
+    }
+
+    .bg-enter-active,
+    .bg-leave-active {
+        transition: opacity 0.3s ease;
+    }
+
+    .bg-enter-from,
+    .bg-leave-to {
+        opacity: 0;
     }
 </style>
