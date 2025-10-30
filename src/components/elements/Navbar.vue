@@ -19,7 +19,7 @@
             <div>
                 <Button :func="showSidebar" class="max-w-[50px]">Show</Button>
             </div>
-            <div class="flex">
+            <div class="flex flex-row gap-2">
                 <Button :func="()=>{}" class="max-w-[50px]">Save</Button>
                 <Button :func="()=>{}" class="max-w-[50px]">Export</Button>
             </div>
