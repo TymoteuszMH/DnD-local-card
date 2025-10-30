@@ -20,6 +20,7 @@ export interface ICard{
     stats: IStat[];
     inspiration: boolean;
     proficiencyValue: number;
+    passivePerception: number;
     savingThrows: ISavingThrow[];
     skills: ISkill[];
     healthInfo: IHealth;
@@ -83,10 +84,10 @@ export interface ISkill{
 
 export interface IHealth{
     armorClass: number;
-    initiative: number;
+    initiative?: number;
     speed: number;
     healthPoints: number;
-    temporatyHealthPoints: number;
+    temporatyHealthPoints?: number;
     deathSavesFailures: number;
     deathSavesSuccesses: number;
 }
