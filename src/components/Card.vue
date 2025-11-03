@@ -1,16 +1,14 @@
 <script lang="ts" setup>
-    import type { ICard } from '@/types';
+    import { useCardStore } from '@/stores/card';
     import Navbar from './elements/Navbar.vue';
+    import BasicInfo from './card/basicInfo/BasicInfo.vue';
+    const { card } = useCardStore()
 
-    defineProps<{
-        card: ICard;
-    }>();
+    
 </script>
 
 <template>
     <Navbar>
-        <div>
-            works
-        </div>
+        <BasicInfo />
     </Navbar>
 </template>

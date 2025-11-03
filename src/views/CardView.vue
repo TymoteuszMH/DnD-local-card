@@ -4,20 +4,15 @@
     import { createEmptyCard } from '@/utils';
     import { computed } from 'vue';
     import { useRoute } from 'vue-router';
+import { useCardStore } from '@/stores/card';
 
     const route = useRoute();
+    const {card, getCardFromStorage} = useCardStore()
+
     const id = computed<string>(() => (route.params.uuid as string)); 
-    const card = computed<ICard>(()=>{
-        const localCard = localStorage.getItem(id.value);
-        console.log(id.value)
-        if(localCard)
-            return JSON.parse(localCard) as ICard;
-        const newCard = createEmptyCard(id.value);
-        localStorage.setItem(id.value, JSON.stringify(newCard));
-        return newCard;
-    })
+    getCardFromStorage(id.value);
 </script>
 
 <template>
-    <Card :card="card"></Card>
+    <Card/>
 </template>

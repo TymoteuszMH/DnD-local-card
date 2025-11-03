@@ -11,6 +11,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    BasicInfo: typeof import('./src/components/card/basicInfo/BasicInfo.vue')['default']
     Button: typeof import('./src/components/elements/Button.vue')['default']
     Card: typeof import('./src/components/Card.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
@@ -18,11 +19,16 @@ declare module 'vue' {
     ElContainer: typeof import('element-plus/es')['ElContainer']
     ElFooter: typeof import('element-plus/es')['ElFooter']
     ElHeader: typeof import('element-plus/es')['ElHeader']
+    ElIcon: typeof import('element-plus/es')['ElIcon']
+    ElInput: typeof import('element-plus/es')['ElInput']
     ElMain: typeof import('element-plus/es')['ElMain']
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     HomePage: typeof import('./src/components/HomePage.vue')['default']
+    Info: typeof import('./src/components/card/basicInfo/Info.vue')['default']
+    Input: typeof import('./src/components/elements/Input.vue')['default']
+    Name: typeof import('./src/components/card/basicInfo/Name.vue')['default']
     Navbar: typeof import('./src/components/elements/Navbar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

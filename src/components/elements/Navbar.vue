@@ -2,6 +2,9 @@
     import { ref } from 'vue';
     import Button from './Button.vue';
     import Sidebar from './Sidebar.vue';
+    import { useCardStore } from '@/stores/card';
+
+    const {saveCardToLocalStorage} = useCardStore();
 
     const showState = ref<boolean>(false)
 
@@ -20,7 +23,7 @@
                 <Button :func="showSidebar" class="max-w-[50px]">Show</Button>
             </div>
             <div class="flex flex-row gap-2">
-                <Button :func="()=>{}" class="max-w-[50px]">Save</Button>
+                <Button :func="saveCardToLocalStorage" class="max-w-[50px]">Save</Button>
                 <Button :func="()=>{}" class="max-w-[50px]">Export</Button>
             </div>
         </el-header>
