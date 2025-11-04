@@ -1,5 +1,16 @@
 import type { IBasicInfo, ICard, IHealth, ISavingThrow, ISkill, IStat } from "./types";
 
+export const checkMinMaxNum = (currentValue: number, value: string, min: number = 0, max?: number) => {
+    if(!value)
+        return min;
+
+    const newVal = parseInt(value);
+    if(newVal < min || (max && newVal > max))
+        return currentValue;
+
+    return newVal
+}
+
 export const createEmptyCard = (id?: string): ICard => {
     return {
         id: id ?? "",

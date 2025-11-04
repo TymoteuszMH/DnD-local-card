@@ -1,14 +1,17 @@
 <script lang="ts" setup>
-    import { useCardStore } from '@/stores/card';
     import Navbar from './elements/Navbar.vue';
     import BasicInfo from './card/basicInfo/BasicInfo.vue';
-    const { card } = useCardStore()
-
-    
+    import StatList from './card/stats/StatList.vue';    
 </script>
 
 <template>
     <Navbar>
-        <BasicInfo />
+        <div class="flex flex-col gap-2">
+            <BasicInfo />
+            <div class="flex flex-row gap-2">
+                <StatList />
+
+            </div>
+        </div>
     </Navbar>
 </template>
