@@ -1,14 +1,20 @@
 import type { IBasicInfo, ICard, IHealth, ISavingThrow, ISkill, IStat } from "./types";
 
-export const checkMinMaxNum = (currentValue: number, value: string, min: number = 0, max?: number) => {
+export const checkMinMaxNum = (currentValue?: number, value?: string, min: number = 0, max?: number) => {
     if(!value)
-        return min;
+        return undefined;
 
     const newVal = parseInt(value);
     if(newVal < min || (max && newVal > max))
         return currentValue;
 
     return newVal
+}
+
+export const getMod = (statValue: number) => {
+    if(!statValue)
+        return 0;
+    return Math.floor(statValue / 2 - 5)
 }
 
 export const createEmptyCard = (id?: string): ICard => {
@@ -38,12 +44,12 @@ export const initalBasicInfo: IBasicInfo = {
 }
 
 export const initialStats: IStat[] = [
-    {type: "STR", value: 0},
-    {type: "CON", value: 0},
-    {type: "DEX", value: 0},
-    {type: "WIS", value: 0},
-    {type: "INT", value: 0},
-    {type: "CHA", value: 0}
+    {type: "STR", value: undefined},
+    {type: "CON", value: undefined},
+    {type: "DEX", value: undefined},
+    {type: "WIS", value: undefined},
+    {type: "INT", value: undefined},
+    {type: "CHA", value: undefined}
 ]
 
 export const initialSavingThrows: ISavingThrow[] = [

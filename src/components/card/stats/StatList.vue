@@ -6,7 +6,7 @@
 </script>
 
 <template>
-    <div class="border rounded-md p-4 flex flex-row sm:flex-col gap-2 sm:gap-6 sm:max-w-[15%] min-w-25 min-h-20">
+    <div class="card-panel flex flex-row md:flex-col py-4! justify-between md:max-w-[15%] min-w-25 min-h-20">
         <div v-for="stat in card.stats">
             <SingleStat :stat/>
         </div>

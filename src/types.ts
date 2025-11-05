@@ -60,7 +60,7 @@ export type statType = "STR"|"DEX"|"CON"|"INT"|"WIS"|"CHA"
  */
 export interface IStat{
     type: statType;
-    value: number;
+    value?: number;
 }
 
 /**
