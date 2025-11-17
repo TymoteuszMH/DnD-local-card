@@ -1,19 +1,20 @@
 <script lang="ts" setup>
-import Navbar from './elements/Navbar.vue'
-import BasicInfo from './card/basicInfo/BasicInfo.vue'
-import StatList from './card/stats/StatList.vue'
-import Inspiration from './card/abilities/Inspiration.vue'
-import Proficiency from './card/abilities/Proficiency.vue'
-import PassivePerception from './card/abilities/PassivePerception.vue'
-import SavingThrows from './card/abilities/savingThrows/SavingThrows.vue'
-import Skills from './card/abilities/skills/Skills.vue'
-import { useCardStore } from '@/stores/card'
-import { watch } from 'vue'
+  import Navbar from './elements/Navbar.vue'
+  import BasicInfo from './card/basicInfo/BasicInfo.vue'
+  import StatList from './card/stats/StatList.vue'
+  import Inspiration from './card/abilities/Inspiration.vue'
+  import Proficiency from './card/abilities/Proficiency.vue'
+  import PassivePerception from './card/abilities/PassivePerception.vue'
+  import SavingThrows from './card/abilities/savingThrows/SavingThrows.vue'
+  import Skills from './card/abilities/skills/Skills.vue'
+  import { useCardStore } from '@/stores/card'
+  import { watch } from 'vue'
+import Health from './card/health/Health.vue'
 
-const props = defineProps<{ uuid: string }>()
-const { getCardFromStorage } = useCardStore()
-watch(props, ({ uuid }) => getCardFromStorage(uuid))
-getCardFromStorage(props.uuid)
+  const props = defineProps<{ uuid: string }>()
+  const { getCardFromStorage } = useCardStore()
+  watch(props, ({ uuid }) => getCardFromStorage(uuid))
+  getCardFromStorage(props.uuid)
 </script>
 
 <template>
@@ -28,6 +29,9 @@ getCardFromStorage(props.uuid)
           <PassivePerception />
           <SavingThrows />
           <Skills />
+        </div>
+        <div class="flex flex-col gap-3">
+          <Health />
         </div>
       </div>
     </div>
