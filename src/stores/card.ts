@@ -1,35 +1,49 @@
-import type { ICard } from "@/types";
-import { createEmptyCard } from "@/utils";
-import { defineStore } from "pinia";
-import { ref } from "vue";
+import type { ICard } from '@/types'
+import { createEmptyCard } from '@/utils'
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
 
-export const useCardStore = defineStore('card', ()=>{
-    const card = ref<ICard>(createEmptyCard());
+type SavedCard = {
+  id: string
+  name: string
+}
 
-    const getCardFromStorage = (id: string) => {
-        const savedCard = localStorage.getItem(id);
-        if(savedCard === null)
-            card.value = createEmptyCard(id);
-        else
-            card.value = JSON.parse(savedCard);
-    }
+export const useCardStore = defineStore('card', () => {
+  const card = ref<ICard>(createEmptyCard())
 
-    const saveCardToLocalStorage = () =>{
-        if(!card.value.id)
-            throw new Error("Id doesn't exist!")
+  const getCardFromStorage = (id: string) => {
+    const savedCard = localStorage.getItem(id)
+    if (savedCard === null) card.value = createEmptyCard(id)
+    else card.value = JSON.parse(savedCard)
+  }
 
-        localStorage.setItem(card.value.id, JSON.stringify(card.value))
+  const saveCardToLocalStorage = () => {
+    if (!card.value.id) throw new Error("Id doesn't exist!")
 
-        const savedCards = localStorage.getItem("savedCards");
+    localStorage.setItem(card.value.id, JSON.stringify(card.value))
 
-        const list = JSON.parse(savedCards ?? "[]") as string[];
-        if(!list.includes(card.value.id))
-            localStorage.setItem("savedCards", JSON.stringify([...list, card.value.id]))
-    }
+    const savedCards = localStorage.getItem('savedCards')
 
-    return { 
-        card,
-        getCardFromStorage, 
-        saveCardToLocalStorage 
-    }
+    const list: SavedCard[] = JSON.parse(savedCards ?? '[]') as SavedCard[]
+    if (!list.map((c: SavedCard) => c.id).includes(card.value.id))
+      localStorage.setItem(
+        'savedCards',
+        JSON.stringify([...list, { id: card.value.id, name: card.value.basicInfo.name }]),
+      )
+    else
+      localStorage.setItem(
+        'savedCards',
+        JSON.stringify(
+          list.map((c) =>
+            c.id == card.value.id ? { id: card.value.id, name: card.value.basicInfo.name } : c,
+          ),
+        ),
+      )
+  }
+
+  return {
+    card,
+    getCardFromStorage,
+    saveCardToLocalStorage,
+  }
 })

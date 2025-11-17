@@ -1,16 +1,12 @@
 <script lang="ts" setup>
-    import Card from "@/components/Card.vue"
-    import { computed } from 'vue';
-    import { useRoute } from 'vue-router';
-    import { useCardStore } from '@/stores/card';
+import Card from '@/components/Card.vue'
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 
-    const route = useRoute();
-    const {getCardFromStorage} = useCardStore()
-
-    const id = computed<string>(() => (route.params.uuid as string)); 
-    getCardFromStorage(id.value);
+const route = useRoute()
+const id = computed<string>(() => route.params.uuid as string)
 </script>
 
 <template>
-    <Card/>
+  <Card :uuid="id" />
 </template>
