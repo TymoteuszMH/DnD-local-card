@@ -1,4 +1,4 @@
-import type { IBasicInfo, ICard, IHealth, ISavingThrow, ISkill, IStat } from "./types";
+import type { IBasicInfo, ICard, IDice, IHealth, IItem, ISavingThrow, ISkill, IStat, IWeapon, IWeaponDemageType } from "./types";
 
 export const checkMinMaxNum = (currentValue?: number, value?: string, min: number = 0, max?: number) => {
     if(!value)
@@ -91,3 +91,19 @@ export const initialHealth:IHealth = {
     deathSavesFailures: 0,
     deathSavesSuccesses: 0
 }
+
+export const initialItem: IItem = {
+    name: "",
+    cost: {value: 0, currency: "Gp"},
+    weight: {weight: 0, measure: ""}
+}
+
+export const initailWeapon: IWeapon = {
+    ...initialItem,
+    type: "melee",
+    proficiency: false,
+    damage: {dice: "d4", diceNumber: 1, type: "piercing"}
+}
+
+export const dices: IDice[] = ["d4","d6","d8","d10","d12","d20"];
+export const weaponDemageTypes: IWeaponDemageType[] = ["bludgeoning", "piercing", "slashing"]

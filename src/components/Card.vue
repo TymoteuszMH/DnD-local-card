@@ -10,6 +10,7 @@
   import { useCardStore } from '@/stores/card'
   import { watch } from 'vue'
 import Health from './card/health/Health.vue'
+import WeaponList from './card/weapons/WeaponList.vue'
 
   const props = defineProps<{ uuid: string }>()
   const { getCardFromStorage } = useCardStore()
@@ -21,7 +22,7 @@ import Health from './card/health/Health.vue'
   <Navbar>
     <div class="flex flex-col gap-3" :key="uuid">
       <BasicInfo />
-      <div class="flex flex-col md:flex-row gap-2 basis-2/5">
+      <div class="flex flex-col md:flex-row gap-2">
         <StatList />
         <div class="flex flex-col gap-3">
           <Inspiration />
@@ -29,6 +30,10 @@ import Health from './card/health/Health.vue'
           <PassivePerception />
           <SavingThrows />
           <Skills />
+        </div>
+        <div class="flex flex-col gap-3">
+          <Health />
+          <WeaponList />
         </div>
         <div class="flex flex-col gap-3">
           <Health />

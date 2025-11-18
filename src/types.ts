@@ -86,7 +86,7 @@ export interface IHealth{
     armorClass: number;
     initiative?: number;
     speed: number;
-    healthPoints: number;
+    healthPoints?: number;
     temporatyHealthPoints?: number;
     deathSavesFailures: number;
     deathSavesSuccesses: number;
@@ -97,10 +97,14 @@ export interface ICost{
     currency: "Cp"|"Sp"|"Ep"|"Gp"|"Pp";
 }
 
+export type IDice = "d4"|"d6"|"d8"|"d10"|"d12"|"d20"
+export type IWeaponDemageType = "piercing"|"slashing"|"bludgeoning";
+export type IDemageType = IWeaponDemageType|"acid"|"cold"|"fire"|"force"|"lightning"|"necrotic"|"poison"|"psychic"|"radiant"|"thunder"
+
 export interface IDamage{
-    dice: "d4"|"d6"|"d8"|"d10"|"d12";
+    dice: IDice;
     diceNumber: number;
-    demageType: "piercing"|"slashing"|"bludgeoning";
+    type: IWeaponDemageType
 }
 
 export interface IWeight{
@@ -132,6 +136,7 @@ export interface IItem{
 export interface IWeapon extends IItem{
     type: "melee"|"ranged"|"martial";
     proficiency: boolean;
+    damage: IDamage;
 }
 
 export interface IArmor extends IItem{

@@ -36,6 +36,7 @@ declare module 'vue' {
     Info: typeof import('./src/components/card/basicInfo/Info.vue')['default']
     Input: typeof import('./src/components/elements/Input.vue')['default']
     Inspiration: typeof import('./src/components/card/abilities/Inspiration.vue')['default']
+    ItemForm: typeof import('./src/components/card/items/ItemForm.vue')['default']
     Name: typeof import('./src/components/card/basicInfo/Name.vue')['default']
     Navbar: typeof import('./src/components/elements/Navbar.vue')['default']
     PassivePerception: typeof import('./src/components/card/abilities/PassivePerception.vue')['default']
@@ -50,5 +51,8 @@ declare module 'vue' {
     Skill: typeof import('./src/components/card/abilities/skills/Skill.vue')['default']
     Skills: typeof import('./src/components/card/abilities/skills/Skills.vue')['default']
     StatList: typeof import('./src/components/card/stats/StatList.vue')['default']
+    Weapon: typeof import('./src/components/card/weapons/Weapon.vue')['default']
+    WeaponList: typeof import('./src/components/card/weapons/WeaponList.vue')['default']
+    WeaponModal: typeof import('./src/components/card/weapons/WeaponModal.vue')['default']
   }
 }
