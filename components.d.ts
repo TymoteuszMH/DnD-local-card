@@ -11,7 +11,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    AddWeaponModal: typeof import('./src/components/card/weapons/AddWeaponModal.vue')['default']
+    AddWeaponModal: typeof import('./src/components/card/weapons/modals/AddWeaponModal.vue')['default']
     BasicInfo: typeof import('./src/components/card/basicInfo/BasicInfo.vue')['default']
     Button: typeof import('./src/components/elements/Button.vue')['default']
     Card: typeof import('./src/components/Card.vue')['default']
@@ -36,6 +36,7 @@ declare module 'vue' {
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
+    ElText: typeof import('element-plus/es')['ElText']
     Health: typeof import('./src/components/card/health/Health.vue')['default']
     HomePage: typeof import('./src/components/HomePage.vue')['default']
     Info: typeof import('./src/components/card/basicInfo/Info.vue')['default']
@@ -57,6 +58,7 @@ declare module 'vue' {
     Skills: typeof import('./src/components/card/abilities/skills/Skills.vue')['default']
     StatList: typeof import('./src/components/card/stats/StatList.vue')['default']
     Weapon: typeof import('./src/components/card/weapons/Weapon.vue')['default']
+    WeaponForm: typeof import('./src/components/card/weapons/WeaponForm.vue')['default']
     WeaponList: typeof import('./src/components/card/weapons/WeaponList.vue')['default']
     WeaponModal: typeof import('./src/components/card/weapons/WeaponModal.vue')['default']
   }

@@ -52,31 +52,31 @@ export interface IBasicInfo{
 /**
  * type of stat: strength, dextility, constitution, inteligence, wisdom, charisma
  */
-export type statType = "STR"|"DEX"|"CON"|"INT"|"WIS"|"CHA"
+export type IStatType = "STR"|"DEX"|"CON"|"INT"|"WIS"|"CHA"
 
 /**
- * @param {statType} type type of stat
+ * @param {IStatType} type type of stat
  * @param {number} value stat's current value (without proficiency bonus)
  */
 export interface IStat{
-    type: statType;
+    type: IStatType;
     value?: number;
 }
 
 /**
- * @param {statType} type type of saving throw
+ * @param {IStatType} type type of saving throw
  * @param {boolean} proficency whether character has proficiency in saving throw or not
  * @param {number} value current ST value (without proficiency bonus)
  */
 export interface ISavingThrow{
-    type: statType;
+    type: IStatType;
     proficiency: boolean;
     value: number;
 }
 
 export interface ISkill{
     name: string;
-    type: statType;
+    type: IStatType;
     proficiency: boolean;
     expertice: boolean;
     value: number;
@@ -88,8 +88,8 @@ export interface IHealth{
     speed: number;
     healthPoints?: number;
     temporatyHealthPoints?: number;
-    deathSavesFailures: number;
-    deathSavesSuccesses: number;
+    deathSavesFailures?: number;
+    deathSavesSuccesses?: number;
 }
 
 export interface ICost{
@@ -104,7 +104,14 @@ export type IDemageType = IWeaponDemageType|"acid"|"cold"|"fire"|"force"|"lightn
 export interface IDamage{
     dice: IDice;
     diceNumber: number;
+    bonus?: number;
     type: IWeaponDemageType
+}
+
+export interface IAttackModifier{
+    agility: IStatType;
+    proficiency: boolean;
+    bonus?: number;
 }
 
 export interface IWeight{
@@ -135,7 +142,7 @@ export interface IItem{
 
 export interface IWeapon extends IItem{
     type: "melee"|"ranged"|"martial";
-    proficiency: boolean;
+    attackModifier: IAttackModifier;
     damage: IDamage;
 }
 
@@ -157,7 +164,7 @@ export interface IProficiency{
 }
 
 export interface ISpellInfo{
-    spellType: statType;
+    spellType: IStatType;
     spellSaveDC: number;
     spellAtackModifier: number;
 }

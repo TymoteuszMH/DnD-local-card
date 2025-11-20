@@ -1,6 +1,6 @@
 <script setup lang="ts">
     import { useCardStore } from '@/stores/card';
-    import type { ISavingThrow, statType } from '@/types';
+    import type { ISavingThrow, IStatType } from '@/types';
 import { getMod } from '@/utils';
 import { computed } from 'vue';
 

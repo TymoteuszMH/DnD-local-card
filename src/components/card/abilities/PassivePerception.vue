@@ -1,6 +1,5 @@
 <script setup lang="tsx">
     import { useCardStore } from '@/stores/card';
-    import { checkMinMaxNum } from '@/utils';
     import { computed } from 'vue';
     const { card } = useCardStore();
     const percMod = computed<number>(()=>{

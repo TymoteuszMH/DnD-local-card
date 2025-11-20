@@ -9,7 +9,7 @@
     <div class="card-panel">
         <div class="flex flex-col justify-center gap-5 mb-3!">
             <div class="flex flex-row justify-between flex-nowrap gap-2">
-                <SingleEl modal="armorClass" name="Armor Class"/>
+                <SingleEl modal="armorClass" name="AC"/>
                 <SingleEl modal="initiative" name="Initiative"/>
                 <SingleEl modal="speed" name="Speed"/>
             </div>

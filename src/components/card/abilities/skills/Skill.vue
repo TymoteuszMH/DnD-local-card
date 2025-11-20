@@ -31,6 +31,6 @@
         <el-checkbox class="min-w-5 max-w-5 w-full flex justify-center max-h-6" v-model="skill.expertice"/>
         <!-- <el-input type="number" class="max-w-[50px]" :model-value="saveThrow.proficiency ? saveThrow.value + card.proficiencyValue : saveThrow.value" @input="(value: string) => saveThrow.value = parseInt(value)"/> -->
         <el-input type="number" class="min-w-[50px] max-w-[50px] h-6" :model-value="currentValue" disabled/>
-        <span class="w-full text-black text-start text-nowrap text-l h-6 cursor-pointer select-none">{{ skill.name }} ({{ skill.type }})</span>
+        <span class="w-full text-black text-start text-nowrap text-l h-6 select-none">{{ skill.name }} ({{ skill.type }})</span>
     </div>
 </template>

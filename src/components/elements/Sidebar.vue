@@ -1,17 +1,15 @@
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { ref } from 'vue'
 import Button from './Button.vue'
 import { useRouter } from 'vue-router'
+import { Delete } from '@element-plus/icons-vue';
 
 defineProps<{
   hide: () => void
 }>()
 
 const router = useRouter()
-const list = computed<{ id: string; name: string }[]>(() => {
-  const saved: string | null = localStorage.getItem('savedCards')
-  return JSON.parse(saved ?? '[]')
-})
+const list = ref<{ id: string; name: string }[]>(JSON.parse(localStorage.getItem('savedCards') ?? '[]'))
 
 function goToCard(id: string) {
   if (router.hasRoute('card')) {
@@ -25,6 +23,18 @@ function goToCard(id: string) {
     router.push(`/card/${id}`)
   }
 }
+
+function createNewCard() {
+  const id: string = crypto.randomUUID()
+  router.push(`/card/${id}`)
+}
+
+function deleteCard(event: Event, id: string){
+  event.stopPropagation();
+  localStorage.removeItem(id);
+  localStorage.setItem('savedCards', JSON.stringify(list.value.filter((card) => card.id !== id)))
+  list.value = list.value.filter((card) => card.id !== id)
+}
 </script>
 
 <template class="flex flex-col h-full!">
@@ -37,13 +47,13 @@ function goToCard(id: string) {
     ></Button>
   </div>
   <div class="flex flex-col gap-2 px-2">
-    <div v-for="(card, index) in list" class="border rounded-md overflow-hidden">
-      <div
-        class="h-full w-full p-2 select-none cursor-pointer flex justify-center"
-        @click="goToCard(card.id)"
-      >
-        {{ card.name !== '' ? card.name : `Card #${index}` }}
-      </div>
+    <div v-for="(card, i) in list" class="border rounded-md overflow-hidden p-2 select-none cursor-pointer flex flex-row flex-nowrap items-center justify-between" @click="goToCard(card.id)">
+      <span>{{ card.name !== '' ? card.name : `Card #${i + 1}` }}</span>
+      <el-button type="danger" :icon="Delete" @click="(event: Event) => deleteCard(event, card.id)"></el-button>
     </div>
+    <div v-if="list.length == 0" class="text-center text-2xl">
+      No cards
+    </div>
+    <Button :func="createNewCard">Create new</Button>
   </div>
 </template>
