@@ -2,6 +2,7 @@
     import type { IWeapon } from '@/types';
     import { ref } from 'vue';
     import { dices, weaponDemageTypes, weaponTypes, stats, checkMinMaxNum } from '@/utils';
+import ItemForm from './ItemForm.vue';
 
     const props = defineProps<{
         form: IWeapon;
@@ -13,11 +14,7 @@
 
 <template>
     <div class="flex flex-col gap-2">
-        <el-text type="primary" class="w-full text-start" tag="div">Name and amount</el-text>
-        <div class="flex flex-row flex-nowrap gap-1">
-            <el-input v-model.trim="weapon.name" placeholder="Name" class="basis-4/5" :disabled="isEdit"/>
-            <el-input type="number" v-model="weapon.amount" placeholder="Amount" class="basis-1/5"/>
-        </div>
+        <ItemForm :form="weapon" :is-edit="isEdit"/>
 
         <el-text type="primary" class="w-full text-start" tag="div">Weapon Type</el-text>
         <el-select v-model="weapon.type" placeholder="Type" :disabled="isEdit">
@@ -47,8 +44,5 @@
             </el-select>
             <el-input type="number" placeholder="Bonus" :model-value="weapon.attackModifier.bonus" @input="(value: string) => weapon.damage.bonus = checkMinMaxNum(weapon.damage.bonus, value, 0)"/>
         </div>
-
-        <el-text type="primary" class="w-full text-start" tag="div">Description</el-text>
-        <el-input type="textarea" v-model="weapon.description" placeholder="Description" />
     </div>
 </template>

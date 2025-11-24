@@ -135,6 +135,7 @@ export const initailWeapon = (): IWeapon => ({
     damage: {dice: "d4", diceNumber: 1, type: "piercing"}
 })
 
+export const currencies = ["Cp","Sp","Ep","Gp","Pp"]
 export const weaponTypes = ["melee", "martial", "ranged"]
 export const dices: IDice[] = ["d4","d6","d8","d10","d12","d20"];
 export const stats: IStatType[] = ["STR", "DEX", "CON", "WIS", "INT", "CHA"]

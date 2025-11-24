@@ -1,6 +1,6 @@
 <script setup lang="ts">
     import type { IWeapon } from '@/types';
-    import WeaponForm from '../WeaponForm.vue';
+    import WeaponForm from '../../forms/WeaponForm.vue';
     import { reactive, ref } from 'vue';
     import { ElMessage, ElMessageBox } from 'element-plus';
     import 'element-plus/es/components/message/style/css';
@@ -44,13 +44,7 @@
 
 <template>
     <div :class="`border! border-white! text-white cursor-pointer transition-colors! duration-100 ease-in-out hover:bg-[rgba(255,255,255,0.4)] ${className}`" @click="dialogVisible = true"><slot class="w-full! h-full"></slot></div>
-    <el-dialog center destroy-on-close v-model="dialogVisible" title="Weapon" width="500" ::before-close="onClose">
+    <Modal :show="dialogVisible" :hide="onClose" title="Edit Weapon" :onClose="onClose" :save-button="{text: 'Delete', func: onDelete, type: 'danger'}">
         <WeaponForm :form="editWeapon"/>
-        <template #footer>
-            <div class="dialog-footer">
-                <el-button type="primary" @click="onClose">Close</el-button>
-                <el-button type="danger" @click="onDelete()">Delete</el-button>
-            </div>
-        </template>
-    </el-dialog>
+    </Modal>
 </template>

@@ -11,11 +11,14 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AddItemModal: typeof import('./src/components/card/items/modals/AddItemModal.vue')['default']
     AddWeaponModal: typeof import('./src/components/card/weapons/modals/AddWeaponModal.vue')['default']
     BasicInfo: typeof import('./src/components/card/basicInfo/BasicInfo.vue')['default']
     Button: typeof import('./src/components/elements/Button.vue')['default']
     Card: typeof import('./src/components/Card.vue')['default']
-    EditWeaponModal: typeof import('./src/components/card/weapons/EditWeaponModal.vue')['default']
+    CostForm: typeof import('./src/components/card/forms/CostForm.vue')['default']
+    EditItemModal: typeof import('./src/components/card/items/modals/EditItemModal.vue')['default']
+    EditWeaponModal: typeof import('./src/components/card/weapons/modals/EditWeaponModal.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
@@ -42,7 +45,10 @@ declare module 'vue' {
     Info: typeof import('./src/components/card/basicInfo/Info.vue')['default']
     Input: typeof import('./src/components/elements/Input.vue')['default']
     Inspiration: typeof import('./src/components/card/abilities/Inspiration.vue')['default']
-    ItemForm: typeof import('./src/components/card/items/ItemForm.vue')['default']
+    Item: typeof import('./src/components/card/items/Item.vue')['default']
+    ItemForm: typeof import('./src/components/card/forms/ItemForm.vue')['default']
+    ItemsList: typeof import('./src/components/card/items/ItemsList.vue')['default']
+    Modal: typeof import('./src/components/elements/Modal.vue')['default']
     Name: typeof import('./src/components/card/basicInfo/Name.vue')['default']
     Navbar: typeof import('./src/components/elements/Navbar.vue')['default']
     PassivePerception: typeof import('./src/components/card/abilities/PassivePerception.vue')['default']
@@ -58,7 +64,7 @@ declare module 'vue' {
     Skills: typeof import('./src/components/card/abilities/skills/Skills.vue')['default']
     StatList: typeof import('./src/components/card/stats/StatList.vue')['default']
     Weapon: typeof import('./src/components/card/weapons/Weapon.vue')['default']
-    WeaponForm: typeof import('./src/components/card/weapons/WeaponForm.vue')['default']
+    WeaponForm: typeof import('./src/components/card/forms/WeaponForm.vue')['default']
     WeaponList: typeof import('./src/components/card/weapons/WeaponList.vue')['default']
     WeaponModal: typeof import('./src/components/card/weapons/WeaponModal.vue')['default']
   }
