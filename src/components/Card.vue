@@ -11,6 +11,7 @@
   import { watch } from 'vue'
 import Health from './card/health/Health.vue'
 import WeaponList from './card/weapons/WeaponList.vue'
+import ItemsList from './card/items/ItemsList.vue'
 
   const props = defineProps<{ uuid: string }>()
   const { getCardFromStorage } = useCardStore()
@@ -26,16 +27,17 @@ import WeaponList from './card/weapons/WeaponList.vue'
         <div class="flex flex-col w-full md:flex-row gap-2 lg:basis-2/3">
           <StatList class="md:basis-1/6 lg:basis-1/9 w-full"/>
           <div class="flex flex-col sm:flex-row gap-2 md:basis-5/6 lg:basis-8/9">
-            <div class="flex flex-col gap-3 w-full sm:basis-1/2">
+            <div class="flex flex-col gap-3 pb-3 w-full sm:basis-1/2">
               <Inspiration />
               <Proficiency />
               <PassivePerception />
               <SavingThrows />
               <Skills />
             </div>
-            <div class="flex flex-col gap-3 sm:basis-1/2">
+            <div class="flex flex-col gap-5 sm:basis-1/2">
               <Health />
               <WeaponList />
+              <ItemsList />
             </div>
           </div>
         </div>

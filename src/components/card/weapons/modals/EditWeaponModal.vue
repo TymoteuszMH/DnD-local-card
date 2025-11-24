@@ -1,5 +1,6 @@
 <script setup lang="ts">
     import type { IWeapon } from '@/types';
+    import Modal from '@/components/elements/Modal.vue';
     import WeaponForm from '../../forms/WeaponForm.vue';
     import { reactive, ref } from 'vue';
     import { ElMessage, ElMessageBox } from 'element-plus';

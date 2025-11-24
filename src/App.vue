@@ -24,14 +24,35 @@
   border-radius: var(--radius-md);
   gap: calc(var(--spacing) * 2);
 }
+.el-dialog__title{
+  color: white !important;
+}
 
-.name {
-  .el-input__wrapper {
-    background-color: transparent;
+.transparent-input {
+  .el-input__wrapper, .el-textarea__inner, .el-select__wrapper, .el-select-dropdown__item {
+    background-color: transparent !important;
   }
 
-  .el-input__inner {
-    color: white;
+  .el-checkbox__input.is-checked .el-checkbox__inner{
+    background-color: var(--el-color-primary) !important;
+    border-color: var(--el-color-primary) !important;
+  }
+  .el-checkbox__input.is-checked+.el-checkbox__label{
+    color: var(--el-color-primary) !important;
+  }
+
+  .el-select-dropdown__item:hover{
+    transition: all ease-in-out 0.1s;
+    background: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .el-select-dropdown__item.is-selected{
+    color: var(--el-color-primary) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+  }
+
+  .el-input__inner, .el-textarea__inner, .el-select__placeholder, .el-select-dropdown__item, .el-checkbox__label {
+    color: white !important;
   }
 }
 

@@ -2,6 +2,8 @@
     import type { ICost } from '@/types';
     import { ref } from 'vue';
     import { currencies } from '@/utils';
+    import { InputField, LabelField, SelectField } from '@/components/elements/form';
+
 
     const props = defineProps<{
         form: ICost;
@@ -13,12 +15,10 @@
 
 <template>
     <div class="flex flex-col gap-2">
-        <el-text type="primary" class="w-full text-start" tag="div">Cost</el-text>
+        <LabelField>Cost</LabelField>
         <div class="flex flex-row flex-nowrap gap-1">
-            <el-input type="number" v-model="cost.value" placeholder="Amount" class="basis-3/5"/>
-            <el-select v-model="cost.currency" placeholder="Currency" class="basis-2/5">
-                <el-option v-for="currency of currencies" :label="currency" :value="currency" />
-            </el-select>
+            <InputField type="number" :model="cost.value" placeholder="Amount" input-class="basis-3/5" transparent/>
+            <SelectField :model="cost.currency" :values="currencies" placeholder="Currency" class="basis-2/5" transparent/>
         </div>
     </div>
 </template>

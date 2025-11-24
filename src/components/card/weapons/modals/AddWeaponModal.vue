@@ -1,7 +1,7 @@
 <script setup lang="ts">
     import type { IWeapon } from '@/types';
-    import { dices, initailWeapon, weaponDemageTypes } from '@/utils';
-    import { reactive, ref } from 'vue';
+    import { initailWeapon } from '@/utils';
+    import { ref } from 'vue';
     import { Plus } from '@element-plus/icons-vue';
     import WeaponForm from '../../forms/WeaponForm.vue';
     import Modal from '@/components/elements/Modal.vue';

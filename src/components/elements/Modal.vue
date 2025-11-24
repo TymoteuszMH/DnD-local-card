@@ -15,9 +15,10 @@
     @update:model-value="hide"
     @before-close="onClose"
     :title="title"
+    destroy-on-close    
     center
     class="w-full! max-w-[500px] border border-white bg-gray-900! absolute! top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 m-0!"
-    header-class="text-white!"
+    header-class="pe-0!"
   >
     <slot></slot>
     <template #footer>

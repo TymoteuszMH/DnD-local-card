@@ -5,6 +5,6 @@
 
 <template>
     <div class="h-full flex flex-col justify-end">
-        <el-input v-model="card.basicInfo.name" class="w-full h-12 name" placeholder="Enter name" />
+        <el-input v-model="card.basicInfo.name" class="w-full h-12 transparent-input" placeholder="Enter name" />
     </div>
 </template>
