@@ -26,6 +26,7 @@ export interface ICard{
     healthInfo: IHealth;
     weapons: IWeapon[];
     items: IItem[];
+    money: ICost[];
     feats: IFeat[];
     proficiencies: IProficiency[];
     spellInfo?: ISpellInfo;
@@ -92,9 +93,11 @@ export interface IHealth{
     deathSavesSuccesses?: number;
 }
 
+export type ICurrency = "Cp"|"Sp"|"Ep"|"Gp"|"Pp";
+
 export interface ICost{
     value: number;
-    currency: "Cp"|"Sp"|"Ep"|"Gp"|"Pp";
+    currency: ICurrency;
 }
 
 export type IDice = "d4"|"d6"|"d8"|"d10"|"d12"|"d20"

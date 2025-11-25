@@ -19,6 +19,7 @@ export const useCardStore = defineStore('card', () => {
 
   const saveCardToLocalStorage = () => {
     if (!card.value.id) throw new Error("Id doesn't exist!")
+    console.log(card.value)
 
     localStorage.setItem(card.value.id, JSON.stringify(card.value))
 

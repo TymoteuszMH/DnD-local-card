@@ -1,4 +1,4 @@
-import type { IBasicInfo, ICard, IDice, IHealth, IItem, ISavingThrow, ISkill, IStat, IWeapon, IWeaponDemageType, IStatType, IAttackModifier } from "./types";
+import type { IBasicInfo, ICard, IDice, IHealth, IItem, ISavingThrow, ISkill, IStat, IWeapon, IWeaponDemageType, IStatType, IAttackModifier, ICost, ICurrency } from "./types";
 
 export const checkMinMaxNum = (currentValue?: number, value?: string, min: number = 0, max?: number) => {
     if(!value)
@@ -53,6 +53,7 @@ export const createEmptyCard = (id?: string): ICard => ({
     savingThrows: initialSavingThrows(),
     skills: initialSkills(),
     healthInfo: initialHealth(),
+    money: initialMoney(),
     weapons: [],
     items: [],
     feats: [],
@@ -116,6 +117,8 @@ export const initialHealth = ():IHealth => ({
     deathSavesSuccesses: undefined
 })
 
+export const initialMoney = ():ICost[] => currencies.map((currency) => ({value: 0, currency} as ICost))
+
 export const initialItem = (): IItem => ({
     name: "",
     cost: {value: 0, currency: "Gp"},
@@ -135,7 +138,7 @@ export const initailWeapon = (): IWeapon => ({
     damage: {dice: "d4", diceNumber: 1, type: "piercing"}
 })
 
-export const currencies = ["Cp","Sp","Ep","Gp","Pp"]
+export const currencies:ICurrency[] = ["Cp","Sp","Ep","Gp","Pp"]
 export const weaponTypes = ["melee", "martial", "ranged"]
 export const dices: IDice[] = ["d4","d6","d8","d10","d12","d20"];
 export const stats: IStatType[] = ["STR", "DEX", "CON", "WIS", "INT", "CHA"]

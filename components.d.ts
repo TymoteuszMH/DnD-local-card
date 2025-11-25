@@ -51,6 +51,7 @@ declare module 'vue' {
     ItemsList: typeof import('./src/components/card/items/ItemsList.vue')['default']
     LabelField: typeof import('./src/components/elements/form/LabelField.vue')['default']
     Modal: typeof import('./src/components/elements/Modal.vue')['default']
+    Money: typeof import('./src/components/card/items/Money.vue')['default']
     Name: typeof import('./src/components/card/basicInfo/Name.vue')['default']
     Navbar: typeof import('./src/components/elements/Navbar.vue')['default']
     PassivePerception: typeof import('./src/components/card/abilities/PassivePerception.vue')['default']
