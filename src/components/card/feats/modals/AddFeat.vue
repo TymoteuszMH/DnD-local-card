@@ -1,16 +1,16 @@
 <script setup lang="ts">
-    import type { IItem } from '@/types';
-    import { initialItem } from '@/utils';
+    import type { IFeat } from '@/types';
+    import { initialFeat } from '@/utils';
     import { ref } from 'vue';
     import { Plus } from '@element-plus/icons-vue';
     import Modal from '@/components/elements/Modal.vue';
-    import ItemForm from '../../forms/ItemForm.vue';
+    import FeatForm from '../../forms/FeatForm.vue';
 
     const props = defineProps<{
-        save: (item: IItem) => void,
+        save: (feat: IFeat) => void,
     }>();
 
-    const item = ref<IItem>(initialItem())
+    const feat = ref<IFeat>(initialFeat())
     const dialogVisible = ref(false)
 
     function onClose(){
@@ -18,15 +18,15 @@
     }
 
     function onSave(){
-        props.save(item.value);
-        item.value = initialItem();
+        props.save(feat.value);
+        feat.value = initialFeat();
         onClose();
     }
 </script>
 
 <template>
     <el-button class="border! border-white!" type="primary" :icon="Plus" @click="dialogVisible = true">Add</el-button>
-    <Modal :show="dialogVisible" :hide="onClose" title="Add Item" :onClose="onClose" :save-button="{text: 'Save', func: onSave, disabled: !item.name}">
-        <ItemForm :item/>
+    <Modal :show="dialogVisible" :hide="onClose" title="Add Feat" :onClose="onClose" :save-button="{text: 'Save', func: onSave, disabled: !feat.name}">
+        <FeatForm :form="feat"/>
     </Modal>
 </template>

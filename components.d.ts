@@ -11,6 +11,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AddFeat: typeof import('./src/components/card/feats/modals/AddFeat.vue')['default']
     AddItemModal: typeof import('./src/components/card/items/modals/AddItemModal.vue')['default']
     AddWeaponModal: typeof import('./src/components/card/weapons/modals/AddWeaponModal.vue')['default']
     BasicInfo: typeof import('./src/components/card/basicInfo/BasicInfo.vue')['default']
@@ -18,6 +19,7 @@ declare module 'vue' {
     Card: typeof import('./src/components/Card.vue')['default']
     CheckboxField: typeof import('./src/components/elements/form/CheckboxField.vue')['default']
     CostForm: typeof import('./src/components/card/forms/CostForm.vue')['default']
+    EditFeat: typeof import('./src/components/card/feats/modals/EditFeat.vue')['default']
     EditItemModal: typeof import('./src/components/card/items/modals/EditItemModal.vue')['default']
     EditWeaponModal: typeof import('./src/components/card/weapons/modals/EditWeaponModal.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
@@ -41,6 +43,9 @@ declare module 'vue' {
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     ElText: typeof import('element-plus/es')['ElText']
+    Feat: typeof import('./src/components/card/feats/Feat.vue')['default']
+    FeatForm: typeof import('./src/components/card/forms/FeatForm.vue')['default']
+    FeatsList: typeof import('./src/components/card/feats/FeatsList.vue')['default']
     Health: typeof import('./src/components/card/health/Health.vue')['default']
     HomePage: typeof import('./src/components/HomePage.vue')['default']
     Info: typeof import('./src/components/card/basicInfo/Info.vue')['default']

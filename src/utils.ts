@@ -1,4 +1,4 @@
-import type { IBasicInfo, ICard, IDice, IHealth, IItem, ISavingThrow, ISkill, IStat, IWeapon, IWeaponDemageType, IStatType, IAttackModifier, ICost, ICurrency } from "./types";
+import type { IBasicInfo, ICard, IDice, IHealth, IItem, ISavingThrow, ISkill, IStat, IWeapon, IWeaponDemageType, IStatType, IAttackModifier, ICost, ICurrency, IFeat } from "./types";
 
 export const checkMinMaxNum = (currentValue?: number, value?: string, min: number = 0, max?: number) => {
     if(!value)
@@ -41,6 +41,16 @@ export const getMod = (statValue: number) => {
     if(!statValue)
         return 0;
     return Math.floor(statValue / 2 - 5)
+}
+
+export const parseNum = (value: string|number|undefined):number => {
+    if(!value)
+        return 0;
+
+    if(typeof value == "string")
+        return parseInt(value)
+
+    return value;
 }
 
 export const createEmptyCard = (id?: string): ICard => ({
@@ -136,6 +146,11 @@ export const initailWeapon = (): IWeapon => ({
     type: "melee",
     attackModifier: initialAttackMod(),
     damage: {dice: "d4", diceNumber: 1, type: "piercing"}
+})
+
+export const initialFeat = (): IFeat => ({
+    name: "",
+    description: ""
 })
 
 export const currencies:ICurrency[] = ["Cp","Sp","Ep","Gp","Pp"]

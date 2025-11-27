@@ -1,7 +1,7 @@
 <script lang="ts" setup>
     import type { ICost } from '@/types';
     import { ref } from 'vue';
-    import { currencies } from '@/utils';
+    import { currencies, parseNum } from '@/utils';
     import { InputField, LabelField, SelectField } from '@/components/elements/form';
 
 
@@ -17,8 +17,8 @@
     <div class="flex flex-col gap-2">
         <LabelField>Cost</LabelField>
         <div class="flex flex-row flex-nowrap gap-1">
-            <InputField type="number" :model="cost.value" placeholder="Amount" input-class="basis-3/5" transparent/>
-            <SelectField :model="cost.currency" :values="currencies" placeholder="Currency" class="basis-2/5" transparent/>
+            <InputField type="number" :input="cost.value" :set-input="(val) => cost.value = parseNum(val)" placeholder="Amount" input-class="basis-3/5" transparent/>
+            <SelectField :input="cost.currency" :set-input="(val) => cost.currency = val" :values="currencies" placeholder="Currency" class="basis-2/5" transparent/>
         </div>
     </div>
 </template>
