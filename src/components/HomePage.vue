@@ -2,17 +2,15 @@
 import { useRouter } from 'vue-router'
 import Button from './elements/Button.vue'
 import { ref } from 'vue'
+import { useCardStore } from '@/stores/card';
 
-const router = useRouter()
-const showState = ref<boolean>(false)
+const router = useRouter();
+const showState = ref<boolean>(false);
+const {importCard} = useCardStore();
 
 function createNewCard() {
   const id: string = crypto.randomUUID()
   router.push(`/card/${id}`)
-}
-
-function importCard() {
-  console.log('import works')
 }
 
 function showSidebar() {

@@ -5,7 +5,7 @@ import Sidebar from './Sidebar.vue'
 import { useCardStore } from '@/stores/card'
 import { useRoute } from 'vue-router'
 
-const { saveCardToLocalStorage } = useCardStore()
+const { saveCardToLocalStorage, exportCard } = useCardStore()
 const route = useRoute()
 
 const showState = ref<boolean>(false)
@@ -32,7 +32,7 @@ function showSidebar() {
       </div>
       <div class="flex flex-row gap-2">
         <Button :func="saveCardToLocalStorage" class="max-w-[50px]">Save</Button>
-        <Button :func="() => {}" class="max-w-[50px]">Export</Button>
+        <Button :func="exportCard" class="max-w-[50px]">Export</Button>
       </div>
     </el-header>
     <el-container>

@@ -19,8 +19,6 @@ export const useCardStore = defineStore('card', () => {
 
   const saveCardToLocalStorage = () => {
     if (!card.value.id) throw new Error("Id doesn't exist!")
-    console.log(card.value)
-
     localStorage.setItem(card.value.id, JSON.stringify(card.value))
 
     const savedCards = localStorage.getItem('savedCards')
@@ -42,9 +40,32 @@ export const useCardStore = defineStore('card', () => {
       )
   }
 
+  const exportCard = () => {
+    const data = JSON.stringify(card.value);
+    const blob = new Blob([data], {type: 'application/json'});
+    URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `${card.value.basicInfo.name ?? "card"}`;
+    link.click();
+    URL.revokeObjectURL(link.href);
+  }
+
+  const importCard = () => {
+    const link = document.createElement("input");
+    link.setAttribute("type", "file");
+    link.setAttribute("accept", "application/json");
+    link.addEventListener('change', (ev)=>{
+      console.log(this)
+    });
+    link.click();
+  }
+
   return {
     card,
     getCardFromStorage,
     saveCardToLocalStorage,
+    exportCard,
+    importCard
   }
 })
