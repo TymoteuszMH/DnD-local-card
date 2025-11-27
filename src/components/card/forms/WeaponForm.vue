@@ -31,7 +31,7 @@
 
         <LabelField>Attack Mod</LabelField>
         <div class="flex flex-row gap-2">
-            <CheckboxField :model="weapon.attackModifier.proficiency" label="Prof" transparent/>
+            <CheckboxField :input="weapon.attackModifier.proficiency" :set-input="(val) => weapon.attackModifier.proficiency = val" label="Prof" transparent/>
             <SelectField :input="weapon.attackModifier.agility" :set-input="(val) => weapon.attackModifier.agility = val" :values="stats" placeholder="Agility" transparent/>
             <InputField type="number" :input="weapon.attackModifier.bonus" :set-input="(val) => weapon.attackModifier.bonus = parseNum(val)" placeholder="Bonus" :minMax="{min: 0}" transparent/>
         </div>

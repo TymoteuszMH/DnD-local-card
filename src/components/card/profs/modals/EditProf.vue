@@ -1,19 +1,18 @@
 <script setup lang="ts">
-    import type { IWeapon } from '@/types';
+    import type { IProficiency } from '@/types';
     import Modal from '@/components/elements/Modal.vue';
-    import WeaponForm from '../../forms/WeaponForm.vue';
-    import { reactive, ref } from 'vue';
+    import { ref } from 'vue';
     import { ElMessage, ElMessageBox } from 'element-plus';
     import 'element-plus/es/components/message/style/css';
     import 'element-plus/es/components/message-box/style/css';
+    import ProfForm from '../../forms/ProfForm.vue';
 
     const props = defineProps<{
-        weapon: IWeapon,
+        prof: IProficiency,
         className: string
         delete: () => void,
     }>();
 
-    const editWeapon = reactive<IWeapon>(props.weapon);
     const dialogVisible = ref(false)
 
     function onClose(){
@@ -24,8 +23,8 @@
         if(!props.delete)
             return;
         ElMessageBox.confirm(
-            'Are you sure you want to delete this weapon?', 
-            'Delete weapon', 
+            'Are you sure you want to delete this proficency?', 
+            'Delete proficency', 
             {
                 confirmButtonText: 'Yes',
                 cancelButtonText: 'No',
@@ -45,7 +44,7 @@
 
 <template>
     <div :class="`border! border-white! text-white cursor-pointer transition-colors! duration-100 ease-in-out hover:bg-[rgba(255,255,255,0.4)] ${className}`" @click="dialogVisible = true"><slot class="w-full! h-full"></slot></div>
-    <Modal :show="dialogVisible" :hide="onClose" title="Edit Weapon" :onClose="onClose" :close-button="{text: 'Close', func: onClose, type: 'primary'}" :save-button="{text: 'Delete', func: onDelete, type: 'danger'}">
-        <WeaponForm :weapon="editWeapon"/>
+    <Modal v-if="dialogVisible" :show="dialogVisible" :hide="onClose" title="Edit Prof" :onClose="onClose" :close-button="{text: 'Close', func: onClose, type: 'primary'}" :save-button="{text: 'Delete', func: onDelete, type: 'danger'}">
+        <ProfForm :prof is-edit closeButton="Close"/>
     </Modal>
 </template>

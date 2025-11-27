@@ -3,6 +3,7 @@
     defineProps<{
         show: boolean
         title: string
+        closeButton?: ISaveButton
         saveButton: ISaveButton
         hide: () => void
         onClose: () => any
@@ -23,7 +24,7 @@
     <slot></slot>
     <template #footer>
         <div class="dialog-footer">
-            <el-button @click="hide">Cancel</el-button>
+            <el-button :type="closeButton ? closeButton.type : ''" @click="closeButton ? closeButton.func() : hide()">{{ closeButton ? closeButton.text : "Cancel" }}</el-button>
             <el-button :type="saveButton.type ?? 'primary'" @click="saveButton.func" :disabled="saveButton.disabled">{{ saveButton.text }}</el-button>
         </div>
     </template>

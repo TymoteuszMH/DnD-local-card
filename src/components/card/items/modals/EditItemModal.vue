@@ -45,7 +45,7 @@ import ItemForm from '../../forms/ItemForm.vue';
 
 <template>
     <div :class="`border! border-white! text-white cursor-pointer transition-colors! duration-100 ease-in-out hover:bg-[rgba(255,255,255,0.4)] ${className}`" @click="dialogVisible = true"><slot class="w-full! h-full"></slot></div>
-    <Modal v-if="dialogVisible" :show="dialogVisible" :hide="onClose" title="Edit Item" :onClose="onClose" :save-button="{text: 'Delete', func: onDelete, type: 'danger'}">
+    <Modal v-if="dialogVisible" :show="dialogVisible" :hide="onClose" title="Edit Item" :onClose="onClose" :close-button="{text: 'Close', func: onClose, type: 'primary'}" :save-button="{text: 'Delete', func: onDelete, type: 'danger'}">
         <ItemForm :item="editItem" is-edit/>
     </Modal>
 </template>

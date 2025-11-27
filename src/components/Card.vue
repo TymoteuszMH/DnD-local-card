@@ -9,9 +9,11 @@
   import Skills from './card/abilities/skills/Skills.vue'
   import { useCardStore } from '@/stores/card'
   import { watch } from 'vue'
-import Health from './card/health/Health.vue'
-import WeaponList from './card/weapons/WeaponList.vue'
-import ItemsList from './card/items/ItemsList.vue'
+  import Health from './card/health/Health.vue'
+  import WeaponList from './card/weapons/WeaponList.vue'
+  import ItemsList from './card/items/ItemsList.vue'
+  import FeatsList from './card/feats/FeatsList.vue'
+  import ProfsList from './card/profs/ProfsList.vue'
 
   const props = defineProps<{ uuid: string }>()
   const { getCardFromStorage } = useCardStore()
@@ -23,25 +25,27 @@ import ItemsList from './card/items/ItemsList.vue'
   <Navbar>
     <div class="flex flex-col gap-3" :key="uuid">
       <BasicInfo/>
-      <div class="flex flex-col w-full lg:flex-row gap-2">
-        <div class="flex flex-col w-full md:flex-row gap-2 lg:basis-2/3">
-          <StatList class="md:basis-1/6 lg:basis-1/9 w-full"/>
-          <div class="flex flex-col sm:flex-row gap-2 md:basis-5/6 lg:basis-8/9">
-            <div class="flex flex-col gap-3 pb-3 w-full sm:basis-1/2">
+      <div class="flex flex-col lg:flex-row gap-2 w-full">
+        <StatList class="w-full lg:w-1/9"/>
+        <div class="flex flex-col lg:flex-row gap-2 w-full lg:w-8/9">
+          <div class="flex flex-col md:flex-row gap-2 w-full lg:w-2/3">
+            <div class="flex flex-col gap-3 pb-3 w-full md:w-1/2">
               <Inspiration />
               <Proficiency />
               <PassivePerception />
               <SavingThrows />
               <Skills />
             </div>
-            <div class="flex flex-col gap-5 sm:basis-1/2">
-              <Health />
-              <WeaponList />
-              <ItemsList />
+            <div class="flex flex-col gap-5 pb-3 w-full md:w-1/2">
+                <Health class="h-auto md:h-3/7"/>
+                <WeaponList class="h-auto md:h-2/7"/>
+                <ItemsList class="h-auto md:h-2/7"/>
             </div>
           </div>
-        </div>
-        <div class="flex flex-col gap-3 lg:basis-1/3">
+          <div class="flex flex-col gap-5 md:gap-2 lg:gap-5 md:flex-row lg:flex-col w-full lg:w-1/3">
+              <FeatsList class="w-full md:w-1/2 lg:w-full"/>
+              <ProfsList class="w-full md:w-1/2 lg:w-full"/>
+          </div>
         </div>
       </div>
     </div>
