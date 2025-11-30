@@ -1,7 +1,6 @@
 <script lang="ts" setup>
     import type { IWeapon } from '@/types';
-    import { ref } from 'vue';
-    import { dices, weaponDemageTypes, weaponTypes, stats, checkMinMaxNum, parseNum } from '@/utils';
+    import { dices, weaponDemageTypes, weaponTypes, stats, parseNum } from '@/utils';
     import ItemForm from './ItemForm.vue';
     import { CheckboxField, InputField, LabelField, SelectField } from '@/components/elements/form';
 

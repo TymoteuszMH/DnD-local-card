@@ -27,6 +27,6 @@
 <template>
     <el-button class="border! border-white!" type="primary" :icon="Plus" @click="dialogVisible = true">Add</el-button>
     <Modal :show="dialogVisible" :hide="onClose" title="Add Weapon" :onClose="onClose" :save-button="{text: 'Save', func: onSave, disabled: !weapon.name || !weapon.damage.diceNumber || weapon.damage.diceNumber < 0}">
-        <WeaponForm :form="weapon"/>
+        <WeaponForm :weapon/>
     </Modal>
 </template>
