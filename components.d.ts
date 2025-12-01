@@ -19,6 +19,7 @@ declare module 'vue' {
     Button: typeof import('./src/components/elements/Button.vue')['default']
     Card: typeof import('./src/components/Card.vue')['default']
     CheckboxField: typeof import('./src/components/elements/form/CheckboxField.vue')['default']
+    ClassesModal: typeof import('./src/components/card/basicInfo/ClassesModal.vue')['default']
     CostForm: typeof import('./src/components/card/forms/CostForm.vue')['default']
     EditFeat: typeof import('./src/components/card/feats/modals/EditFeat.vue')['default']
     EditItemModal: typeof import('./src/components/card/items/modals/EditItemModal.vue')['default']

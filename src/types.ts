@@ -43,11 +43,15 @@ export interface ICard{
  */
 export interface IBasicInfo{
     name: string;
-    class: string;
+    classes: IClass[];
     subclass?: string;
-    level: number;
     race: string;
     background: string;
+}
+
+export interface IClass{
+    class: string;
+    level: number;
 }
 
 /**

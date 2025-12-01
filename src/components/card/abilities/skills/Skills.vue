@@ -12,7 +12,7 @@ import Skill from './Skill.vue';
             <span class="max-w-[50px] text-black text-xs w-full flex justify-center">VALUE</span>
             <span class="w-full flex text-black text-xs justify-start">NAME</span>
         </div>
-        <div class="w-full ps-3 flex flex-col gap-1">
+        <div class="w-full ps-3 flex flex-col h-full justify-between gap-1">
             <div  v-for="skill in card.skills">
                 <Skill :skill />
             </div>

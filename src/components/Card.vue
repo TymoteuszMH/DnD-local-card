@@ -35,7 +35,7 @@
                 <Proficiency />
                 <PassivePerception />
                 <SavingThrows />
-                <Skills />
+                <Skills class="h-full"/>
               </div>
               <div class="flex flex-col gap-5 w-full md:w-1/2">
                   <Health class="h-auto md:h-3/7"/>
@@ -44,8 +44,8 @@
               </div>
             </div>
             <div class="flex flex-col gap-5 md:gap-2 lg:gap-5 md:flex-row lg:flex-col w-full md:h-full lg:w-1/3">
-                <FeatsList class="w-full md:w-1/2 lg:w-full md:h-1/2"/>
-                <ProfsList class="w-full md:w-1/2 lg:w-full md:h-1/2"/>
+                <FeatsList class="w-full md:w-1/2 lg:w-full lg:h-1/2"/>
+                <ProfsList class="w-full md:w-1/2 lg:w-full lg:h-1/2"/>
             </div>
           </div>
         </div>

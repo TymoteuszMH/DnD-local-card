@@ -1,4 +1,4 @@
-import type { IBasicInfo, ICard, IDice, IHealth, IItem, ISavingThrow, ISkill, IStat, IWeapon, IWeaponDemageType, IStatType, IAttackModifier, ICost, ICurrency, IFeat, IProficiency } from "./types";
+import type { IBasicInfo, ICard, IDice, IHealth, IItem, ISavingThrow, ISkill, IStat, IWeapon, IWeaponDemageType, IStatType, IAttackModifier, ICost, ICurrency, IFeat, IProficiency, IClass } from "./types";
 
 export const checkMinMaxNum = (currentValue?: number, value?: string, min: number = 0, max?: number) => {
     if(!value)
@@ -72,10 +72,14 @@ export const createEmptyCard = (id?: string): ICard => ({
 
 export const initalBasicInfo = (): IBasicInfo => ({
     name: "",
-    class: "",
-    level: 1,
+    classes: [],
     race: "",
     background: ""
+})
+
+export const initialClass = (): IClass => ({
+    class: "",
+    level: 1
 })
 
 export const initialStats = (): IStat[] => ([

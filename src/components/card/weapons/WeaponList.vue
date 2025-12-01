@@ -15,19 +15,17 @@ import { Search } from '@element-plus/icons-vue';
     const filteredCards = computed(() => card.weapons.filter((weapon) => weapon.name.includes(searchInput.value)))
 </script>
 <template>
-    <div class="relative card-panel pb-5! flex flex-col items-center">
-        <div class="w-full h-full">
-            <div class="w-1/3">
-                <AddWeaponModal :save="addWeapon"/>
-            </div>
-            <div class="flex flex-col gap-2 pt-2 h-full">
+    <div class="relative card-panel flex flex-col items-center">
+        <div class="static w-full h-full">
+            <AddWeaponModal class="w-1/3 relative" :save="addWeapon"/>
+            <div class="flex flex-col pt-2 gap-2 h-4/5">
                 <el-input v-model="searchInput" placeholder="Search..." :prefix-icon="Search"/>
                 <div class="flex flex-row w-full justify-between! items-center px-2">
                     <span class="w-2/5">Name</span>
                     <span class="w-1/5 text-center">ATK</span>
                     <span class="w-2/5 text-end">DMG</span>
                 </div>
-                <el-scrollbar view-class="flex flex-col gap-2" class="max-h-[180px] overflow-hidden">
+                <el-scrollbar view-class="flex flex-col gap-2 py-1" class="relative min-h-[100px] max-h-[180px] overflow-hidden">
                     <Weapon 
                         v-for="(weapon, i) in filteredCards" 
                         :key="i"
