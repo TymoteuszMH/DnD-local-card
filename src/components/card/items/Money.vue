@@ -8,7 +8,7 @@
 </script>
 <template>
     <div class="flex flex-row border border-black rounded-md overflow-hidden">
-        <span class="border-r p-1 min-w-1/2 text-center text-black uppercase">{{ money.currency }}</span>
+        <span class="flex border-r p-1 min-w-1/2 justify-center items-center text-black uppercase">{{ money.currency }}</span>
         <el-input input-style="text-align:center" type="number" :model-value="money.value" @input="(value: any) => money.value = checkMinMaxNum(money.value, value, 0) ?? 0" />
     </div>
 </template>

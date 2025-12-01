@@ -23,31 +23,34 @@
 
 <template>
   <Navbar>
-    <div class="flex flex-col gap-3" :key="uuid">
-      <BasicInfo/>
-      <div class="flex flex-col lg:flex-row gap-2 w-full">
-        <StatList class="w-full lg:w-1/9"/>
-        <div class="flex flex-col lg:flex-row gap-2 w-full lg:w-8/9">
-          <div class="flex flex-col md:flex-row gap-2 w-full lg:w-2/3">
-            <div class="flex flex-col gap-3 pb-3 w-full md:w-1/2">
-              <Inspiration />
-              <Proficiency />
-              <PassivePerception />
-              <SavingThrows />
-              <Skills />
+    <div class="flex w-full justify-center">
+      <div class="flex flex-col gap-5 w-full md:max-w-[1500px]" :key="uuid">
+        <BasicInfo/>
+        <div class="flex flex-col lg:flex-row gap-5 w-full">
+          <StatList class="w-full lg:w-1/9"/>
+          <div class="flex flex-col lg:flex-row gap-5 w-full lg:w-8/9">
+            <div class="flex flex-col md:flex-row gap-5 w-full lg:w-2/3">
+              <div class="flex flex-col gap-5 w-full md:w-1/2">
+                <Inspiration />
+                <Proficiency />
+                <PassivePerception />
+                <SavingThrows />
+                <Skills />
+              </div>
+              <div class="flex flex-col gap-5 w-full md:w-1/2">
+                  <Health class="h-auto md:h-3/7"/>
+                  <WeaponList class="h-auto md:h-2/7"/>
+                  <ItemsList class="h-auto md:h-2/7"/>
+              </div>
             </div>
-            <div class="flex flex-col gap-5 pb-3 w-full md:w-1/2">
-                <Health class="h-auto md:h-3/7"/>
-                <WeaponList class="h-auto md:h-2/7"/>
-                <ItemsList class="h-auto md:h-2/7"/>
+            <div class="flex flex-col gap-5 md:gap-2 lg:gap-5 md:flex-row lg:flex-col w-full md:h-full lg:w-1/3">
+                <FeatsList class="w-full md:w-1/2 lg:w-full md:h-1/2"/>
+                <ProfsList class="w-full md:w-1/2 lg:w-full md:h-1/2"/>
             </div>
-          </div>
-          <div class="flex flex-col gap-5 md:gap-2 lg:gap-5 md:flex-row lg:flex-col w-full lg:w-1/3">
-              <FeatsList class="w-full md:w-1/2 lg:w-full"/>
-              <ProfsList class="w-full md:w-1/2 lg:w-full"/>
           </div>
         </div>
       </div>
     </div>
+
   </Navbar>
 </template>
