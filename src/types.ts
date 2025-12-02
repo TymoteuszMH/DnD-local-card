@@ -178,8 +178,8 @@ export interface ISpellInfo{
 
 export interface ISpellList{
     level: number | "Cantrip";
-    spellSlots: number;
-    spellStolsExpiried: number;
+    spellSlots?: number;
+    spellStolsExpiried?: number;
     spells: ISpell[]
 }
 

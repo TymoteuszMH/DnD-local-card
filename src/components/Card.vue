@@ -14,6 +14,8 @@
   import ItemsList from './card/items/ItemsList.vue'
   import FeatsList from './card/feats/FeatsList.vue'
   import ProfsList from './card/profs/ProfsList.vue'
+import SpellInfo from './card/spells/SpellInfo.vue'
+import Spells from './card/spells/Spells.vue'
 
   const props = defineProps<{ uuid: string }>()
   const { getCardFromStorage } = useCardStore()
@@ -49,6 +51,8 @@
             </div>
           </div>
         </div>
+        <SpellInfo/>
+        <Spells />
       </div>
     </div>
 

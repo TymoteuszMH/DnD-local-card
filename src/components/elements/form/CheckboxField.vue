@@ -2,7 +2,7 @@
     defineProps<{
         input: any;
         setInput: (val: boolean) => void;
-        label: string;
+        label?: string;
         inputClass?: string;
         placeholder?: string;
         disabled?: boolean;

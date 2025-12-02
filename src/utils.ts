@@ -1,4 +1,4 @@
-import type { IBasicInfo, ICard, IDice, IHealth, IItem, ISavingThrow, ISkill, IStat, IWeapon, IWeaponDemageType, IStatType, IAttackModifier, ICost, ICurrency, IFeat, IProficiency, IClass } from "./types";
+import type { IBasicInfo, ICard, IDice, IHealth, IItem, ISavingThrow, ISkill, IStat, IWeapon, IWeaponDemageType, IStatType, IAttackModifier, ICost, ICurrency, IFeat, IProficiency, IClass, ISpell, ISpellList } from "./types";
 
 export const checkMinMaxNum = (currentValue?: number, value?: string, min: number = 0, max?: number) => {
     if(!value)
@@ -67,7 +67,9 @@ export const createEmptyCard = (id?: string): ICard => ({
     weapons: [],
     items: [],
     feats: [],
-    proficiencies: []
+    proficiencies: [],
+    spellInfo: undefined,
+    spells: initialSpells()
 })
 
 export const initalBasicInfo = (): IBasicInfo => ({
@@ -159,6 +161,19 @@ export const initialFeat = (): IFeat => ({
 
 export const initialProf = (): IProficiency => ({
     name: "",
+    description: ""
+})
+
+export const initialSpells = ():ISpellList[] => [
+    {level: "Cantrip", spellSlots: undefined, spellStolsExpiried: undefined, spells: []},
+    ...(Array.of(1,2,3,4,5,6,7,8,9).map((lvl) => (
+        {level: lvl, spellSlots: undefined, spellStolsExpiried: undefined, spells: []} as ISpellList
+    )))
+]
+
+export const initialSpell = ():ISpell => ({
+    name: "",
+    ready: false,
     description: ""
 })
 
