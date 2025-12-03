@@ -13,9 +13,11 @@ export const useCardStore = defineStore('card', () => {
   const card = ref<ICard>(createEmptyCard())
 
   const getCardFromStorage = (id: string) => {
+    card.value = createEmptyCard()
     const savedCard = localStorage.getItem(id)
-    if (savedCard === null) card.value = createEmptyCard(id)
-    else card.value = JSON.parse(savedCard)
+    if (savedCard !== null) 
+      card.value = {...card.value, ...JSON.parse(savedCard)}
+    else card.value.id = id;
   }
 
   const saveCardToLocalStorage = () => {

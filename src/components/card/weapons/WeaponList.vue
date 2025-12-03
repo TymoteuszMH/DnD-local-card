@@ -20,12 +20,12 @@ import { Search } from '@element-plus/icons-vue';
             <AddWeaponModal class="w-1/3 relative" :save="addWeapon"/>
             <div class="flex flex-col pt-2 gap-2 h-4/5">
                 <el-input v-model="searchInput" placeholder="Search..." :prefix-icon="Search"/>
-                <div class="flex flex-row w-full justify-between! items-center px-2">
-                    <span class="w-2/5">Name</span>
+                <div class="flex flex-row w-full justify-between! items-center gap-2 px-2">
+                    <span class="w-2/5 text-center">Name</span>
                     <span class="w-1/5 text-center">ATK</span>
-                    <span class="w-2/5 text-end">DMG</span>
+                    <span class="w-2/5 text-center">DMG</span>
                 </div>
-                <el-scrollbar view-class="flex flex-col gap-2 py-1" class="relative min-h-[100px] max-h-[180px] overflow-hidden">
+                <el-scrollbar view-class="flex flex-col py-1" class="relative min-h-[180px] max-h-[180px] overflow-hidden">
                     <Weapon 
                         v-for="(weapon, i) in filteredCards" 
                         :key="i"

@@ -11,15 +11,15 @@
     }>()
 
     const {card} = useCardStore();
-    const atkMod = computed(()=>calculateMod(props.weapon.attackModifier, card.proficiencyValue, statToObject(card.stats)))
+    const atkMod = computed(()=>calculateMod(props.weapon.attackModifier, card.proficiencyValue ?? 0, statToObject(card.stats)))
 </script>
 
 <template>
     <EditWeaponModal :weapon="weapon" :delete="delete" class-name="rounded-md p-2 w-full">
-        <div class="flex flex-row w-full justify-between! items-center">
-            <span class="text-ellipsis w-2/5 max-w-2/5 overflow-hidden text-nowrap" :key="weapon.name">{{ weapon.name }} <span v-if="!!weapon.amount">({{ weapon.amount }})</span></span>
-            <span class="w-1/5 text-center" v-if="atkMod">{{`${atkMod > 0 ? "+" : ""}${atkMod}` }}</span>
-            <span class="w-2/5 text-end">{{ weapon.damage.diceNumber }}{{weapon.damage.dice}}<span v-if="weapon.damage.bonus">+{{ weapon.damage.bonus }}</span></span>
+        <div class="flex flex-row w-full justify-between! items-center gap-2">
+            <span class="text-ellipsis px-2 text-center w-full max-w-2/5 overflow-hidden text-nowrap border border-white rounded-md" :key="weapon.name">{{ weapon.name }} <span v-if="!!weapon.amount">({{ weapon.amount }})</span></span>
+            <span class="border border-white rounded-md px-2 text-center w-full max-w-1/5" v-if="atkMod">{{`${atkMod > 0 ? "+" : ""}${atkMod}` }}</span>
+            <span class="border border-white rounded-md px-2 text-center w-full max-w-2/5">{{ weapon.damage.diceNumber }}{{weapon.damage.dice}}<span v-if="weapon.damage.bonus">+{{ weapon.damage.bonus }}</span></span>
         </div>
     </EditWeaponModal>
 </template>

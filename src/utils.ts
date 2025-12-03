@@ -1,4 +1,4 @@
-import type { IBasicInfo, ICard, IDice, IHealth, IItem, ISavingThrow, ISkill, IStat, IWeapon, IWeaponDemageType, IStatType, IAttackModifier, ICost, ICurrency, IFeat, IProficiency, IClass, ISpell, ISpellList } from "./types";
+import type { IBasicInfo, ICard, IDice, IHealth, IItem, ISavingThrow, ISkill, IStat, IWeapon, IWeaponDemageType, IStatType, IAttackModifier, ICost, ICurrency, IFeat, IProficiency, IClass, ISpell, ISpellList, ISpellInfo } from "./types";
 
 export const checkMinMaxNum = (currentValue?: number, value?: string, min: number = 0, max?: number) => {
     if(!value)
@@ -68,7 +68,7 @@ export const createEmptyCard = (id?: string): ICard => ({
     items: [],
     feats: [],
     proficiencies: [],
-    spellInfo: undefined,
+    spellInfo: initialSpellInfo(),
     spells: initialSpells()
 })
 
@@ -162,6 +162,12 @@ export const initialFeat = (): IFeat => ({
 export const initialProf = (): IProficiency => ({
     name: "",
     description: ""
+})
+
+export const initialSpellInfo = ():ISpellInfo => ({
+    spellType: undefined,
+    spellSaveDC: undefined,
+    spellAtackModifier: undefined
 })
 
 export const initialSpells = ():ISpellList[] => [

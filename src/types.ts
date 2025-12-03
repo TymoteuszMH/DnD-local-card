@@ -19,7 +19,7 @@ export interface ICard{
     basicInfo: IBasicInfo;
     stats: IStat[];
     inspiration: boolean;
-    proficiencyValue: number;
+    proficiencyValue?: number;
     passivePerception: number;
     savingThrows: ISavingThrow[];
     skills: ISkill[];
@@ -29,7 +29,7 @@ export interface ICard{
     money: ICost[];
     feats: IFeat[];
     proficiencies: IProficiency[];
-    spellInfo?: ISpellInfo;
+    spellInfo: ISpellInfo;
     spells?: ISpellList[];
 }
 
@@ -91,7 +91,10 @@ export interface IHealth{
     armorClass: number;
     initiative?: number;
     speed: number;
+    maxHealthPoints?: number;
     healthPoints?: number;
+    maxHitDices?: string;
+    usedhitDices?: number;
     temporatyHealthPoints?: number;
     deathSavesFailures?: number;
     deathSavesSuccesses?: number;
@@ -171,9 +174,9 @@ export interface IProficiency{
 }
 
 export interface ISpellInfo{
-    spellType: IStatType;
-    spellSaveDC: number;
-    spellAtackModifier: number;
+    spellType?: IStatType;
+    spellSaveDC?: number;
+    spellAtackModifier?: number;
 }
 
 export interface ISpellList{

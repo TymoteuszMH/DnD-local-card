@@ -3,7 +3,7 @@
     import { computed } from 'vue';
     const { card } = useCardStore();
     const percMod = computed<number>(()=>{
-        const perception = card.skills.find((skill)=>skill.name="Perception");
+        const perception = card.skills.find((skill)=>skill.name=="Perception");
         if(!perception)
             return 0;
         return perception.value;

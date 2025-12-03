@@ -2,15 +2,14 @@
     import type { IItem } from '@/types';
     import Modal from '@/components/elements/Modal.vue';
     import { reactive, ref } from 'vue';
-    import { ElMessage, ElMessageBox } from 'element-plus';
     import 'element-plus/es/components/message/style/css';
     import 'element-plus/es/components/message-box/style/css';
-import ItemForm from '../../forms/ItemForm.vue';
+    import ItemForm from '../../forms/ItemForm.vue';
 
     const props = defineProps<{
         item: IItem,
         className: string
-        delete: () => void,
+        onDelete: () => Promise<boolean>,
     }>();
 
     const editItem = reactive<IItem>(props.item);
@@ -20,26 +19,11 @@ import ItemForm from '../../forms/ItemForm.vue';
         dialogVisible.value = false;
     }
 
-    function onDelete(){
-        if(!props.delete)
-            return;
-        ElMessageBox.confirm(
-            'Are you sure you want to delete this item?', 
-            'Delete item', 
-            {
-                confirmButtonText: 'Yes',
-                cancelButtonText: 'No',
-                type: 'warning',
-            }
-        ).then(() => {
-            props.delete();
+    async function onDelete(){
+        const del = await props.onDelete();
+        if(del){
             onClose();
-            ElMessage({
-                type: 'success',
-                message: 'Delete completed',
-                placement: "bottom"
-            })
-        })
+        }
     }
 </script>
 

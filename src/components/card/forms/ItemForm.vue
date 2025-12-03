@@ -2,7 +2,7 @@
     import type { IItem } from '@/types';
     import CostForm from '../forms/CostForm.vue';
     import { InputField, LabelField } from '@/components/elements/form';
-import { parseNum } from '@/utils';
+    import { parseNum } from '@/utils';
 
     defineProps<{
         item: IItem;
@@ -21,6 +21,6 @@ import { parseNum } from '@/utils';
         <CostForm :form="item.cost" :is-edit="isEdit"/>
 
         <LabelField>Description</LabelField>
-        <InputField type="textarea" :input="item.description" :set-input="(val) => item.description = `${val}`" placeholder="Description" transparent/>
+        <InputField inputClass="h-40" input-style="height: 100%" type="textarea" :input="item.description" :set-input="(val) => item.description = `${val}`" placeholder="Description" transparent/>
     </div>
 </template>

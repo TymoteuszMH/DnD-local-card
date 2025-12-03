@@ -14,6 +14,6 @@
         <InputField :input="spell.name" :set-input="(val) => spell.name = `${val}`" placeholder="Name" class="basis-4/5" :disabled="isEdit" transparent/>
 
         <LabelField>Description</LabelField>
-        <InputField type="textarea" :input="spell.description" :set-input="(val) => spell.description = `${val}`" placeholder="Description" transparent/>
+        <InputField inputClass="h-40" input-style="height: 100%" type="textarea" :input="spell.description" :set-input="(val) => spell.description = `${val}`" placeholder="Description" transparent/>
     </div>
 </template>

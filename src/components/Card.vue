@@ -40,9 +40,9 @@ import Spells from './card/spells/Spells.vue'
                 <Skills class="h-full"/>
               </div>
               <div class="flex flex-col gap-5 w-full md:w-1/2">
-                  <Health class="h-auto md:h-3/7"/>
-                  <WeaponList class="h-auto md:h-2/7"/>
-                  <ItemsList class="h-auto md:h-2/7"/>
+                  <Health class="h-full"/>
+                  <WeaponList class="h-full"/>
+                  <ItemsList class="h-full"/>
               </div>
             </div>
             <div class="flex flex-col gap-5 md:gap-2 lg:gap-5 md:flex-row lg:flex-col w-full md:h-full lg:w-1/3">
