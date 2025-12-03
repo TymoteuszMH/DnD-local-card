@@ -1,5 +1,6 @@
 import type { ICard } from '@/types'
 import { createEmptyCard } from '@/utils'
+import { ElMessage } from 'element-plus'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
@@ -55,8 +56,35 @@ export const useCardStore = defineStore('card', () => {
     const link = document.createElement("input");
     link.setAttribute("type", "file");
     link.setAttribute("accept", "application/json");
-    link.addEventListener('change', (ev)=>{
-      console.log(this)
+    link.addEventListener('change', (e: any)=>{
+      const file = e.target.files[0];
+      if(!file)
+        return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const json = JSON.parse(reader.result?.toString() ?? "");
+          if(json.id){
+            card.value = json;
+            saveCardToLocalStorage();
+            ElMessage({
+              type: 'success',
+              message: 'Card imported successfully',
+              placement: "bottom"
+            })
+          }else{
+            throw new Error()
+          }
+        } catch (e) {
+            ElMessage({
+              type: 'warning',
+              message: 'Something went wrong. Try again.',
+              placement: "bottom"
+            })
+          return;
+        }
+      };
+      reader.readAsText(file);
     });
     link.click();
   }

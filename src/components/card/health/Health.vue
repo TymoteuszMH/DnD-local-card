@@ -22,8 +22,8 @@
                 <div class="absolute text-xs md:text-base bg-black text-white -bottom-[15%] z-1 rounded-lg border w-full h-6 flex items-center justify-center ">Temp. HP</div>
             </div>
             <div class="flex flex-row justify-evenly flex-nowrap gap-2">
-                <SingleEl modal="deathSavesSuccesses" name="DS Success"/>
-                <SingleEl modal="deathSavesFailures" name="DS Fails"/>
+                <SingleEl class="max-w-1/2!" modal="deathSavesSuccesses" name="DS Success"/>
+                <SingleEl class="max-w-1/2!" modal="deathSavesFailures" name="DS Fails"/>
             </div>
         </div>
     </div>

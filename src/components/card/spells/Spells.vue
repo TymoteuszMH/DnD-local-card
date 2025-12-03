@@ -1,10 +1,10 @@
 <script setup lang="ts">
     import { useCardStore } from '@/stores/card';
-import SpellsList from './SpellsList.vue';
+    import SpellsList from './SpellsList.vue';
     const {card} = useCardStore();
 </script>
 <template>
-    <div class="flex flex-row flex-wrap gap-5 justify-center">
-        <SpellsList class="w-1/4" v-for="spells in card.spells" :spells/>
+    <div class="grid md:grid-cols-3 gap-5">
+        <SpellsList class="w-full" v-for="spells in card.spells" :spells/>
     </div>
 </template>

@@ -5,7 +5,6 @@
     import type { ISpell, ISpellList } from '@/types';
     import InputField from '@/components/elements/form/InputField.vue';
     import { parseNum } from '@/utils';
-    import LabelField from '@/components/elements/form/LabelField.vue';
     import AddSpell from './modals/AddSpell.vue';
 
     const props = defineProps<{
@@ -22,25 +21,20 @@
 </script>
 <template>
     <div class="relative card-panel flex flex-col items-center">
-        <div class="static w-full h-full">
+        <div class="static w-full h-full pb-4">
             <AddSpell class="w-1/3 relative" :save="addSpell"/>
             <div class="flex flex-col pt-2 gap-2 h-4/5">
-                <div class="flex flex-col">
-                    <div class="flex flex-row">
-                        <LabelField class="w-1/2 text-black!">Slots</LabelField>
-                        <LabelField class="w-1/2 text-black!">Expiried</LabelField>
-                    </div>
-                    <div class="flex flex-row">
-                        <InputField class="w-1/2 h-6 border border-black text-center" placeholder="Slots" :input="spells.spellSlots" :set-input="v => spells.spellSlots = parseNum(v)" />
-                        <InputField class="w-1/2 h-6 border border-black text-center" placeholder="Expiried" :input="spells.spellStolsExpiried" :set-input="v => spells.spellStolsExpiried = parseNum(v)" />
-                    </div>
+                <div class="flex flex-row gap-2">
+                    <InputField class="w-1/2 h-6 text-center" placeholder="Slots" :input="spells.spellSlots" :set-input="v => spells.spellSlots = parseNum(v)" />
+                    <span>/</span>
+                    <InputField class="w-1/2 h-6 text-center" placeholder="Expiried" :input="spells.spellStolsExpiried" :set-input="v => spells.spellStolsExpiried = parseNum(v)" />
                 </div>
 
                 <el-input v-model="searchInput" placeholder="Search..." :prefix-icon="Search"/>
                 <div class="flex flex-row w-full justify-between! items-center px-2">
                     <span class="w-2/5">Name</span>
                 </div>
-                <el-scrollbar view-class="flex flex-col gap-2 py-1" class="relative min-h-[100px] max-h-[180px] overflow-hidden">
+                <el-scrollbar view-class="flex flex-col gap-2 py-1" class="relative min-h-[180px] max-h-[180px] overflow-hidden">
                     <Spell 
                         v-for="(spell, i) in filteredCards" 
                         :key="i"
