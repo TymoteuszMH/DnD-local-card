@@ -44,13 +44,13 @@ export interface ICard{
 export interface IBasicInfo{
     name: string;
     classes: IClass[];
-    subclass?: string;
     race: string;
     background: string;
 }
 
 export interface IClass{
     class: string;
+    subclass?: string;
     level: number;
 }
 
@@ -94,7 +94,7 @@ export interface IHealth{
     maxHealthPoints?: number;
     healthPoints?: number;
     maxHitDices?: string;
-    usedhitDices?: number;
+    hitDices?: string;
     temporatyHealthPoints?: number;
     deathSavesFailures?: number;
     deathSavesSuccesses?: number;
