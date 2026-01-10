@@ -1,0 +1,28 @@
+name = "dnd-local-cards"
+compatibility_date = "2026-01-10"
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+
+[[routes]]
+pattern = "example.org/*"
+zone_name = "example.org"
+
+kv_namespaces = [
+  { binding = "MY_NAMESPACE", id = "<KV_ID>" }
+]
+
+[env.staging]
+name = "dnd-local-cards-staging"
+
+[env.staging.assets]
+directory = "./dist"
+
+[[env.staging.routes]]
+pattern = "staging.example.org/*"
+zone_name = "example.org"
+
+[[env.staging.kv_namespaces]]
+binding = "MY_NAMESPACE"
+id = "<STAGING_KV_ID>"
