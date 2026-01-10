@@ -1,11 +1,10 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "my-vue-app",
+  "name": "dnd-local-cards",
   "compatibility_date": "2026-01-10",
   "pages_build_output_dir": "./dist", 
   "assets": {
-    "directory": "./dist",
-    "binding": "ASSETS"
+    "directory": "./dist"
   },
   "observability": {
     "enabled": true
