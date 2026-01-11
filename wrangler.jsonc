@@ -1,12 +1,7 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "dnd-local-cards",
-  "compatibility_date": "2026-01-10",
-  "pages_build_output_dir": "./dist", 
-  "assets": {
-    "directory": "./dist"
-  },
-  "observability": {
-    "enabled": true
-  }
+  "name": "my-worker",
+  "main": "dist/index.html",
+  "compatibility_date": "2026-01-11",
+  "workers_dev": false
 }
