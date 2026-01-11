@@ -1,5 +1,2 @@
 name = "my-worker"
-main = "dist/index.html"
 compatibility_date = "2026-01-11"
-
-workers_dev = false

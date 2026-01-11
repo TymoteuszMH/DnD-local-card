@@ -1,8 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "my-worker",
-  "main": "dist/index.html",
   "pages_build_output_dir": "./dist", 
-  "compatibility_date": "2026-01-11",
-  "workers_dev": false
+  "compatibility_date": "2026-01-11"
 }
